@@ -2,469 +2,675 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#030303">
-<meta name="description" content="JD Store">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="JD Store - Join our WhatsApp community.">
+
 <title>JD Store</title>
 
 <style>
-:root{
-  --gold:#d9a83f;
-  --gold2:#ffe39a;
-  --black:#030303;
-}
-*{box-sizing:border-box}
-html,body{
-  margin:0;
-  min-height:100%;
-  background:#030303;
-}
-body{
-  color:#fff;
-  font-family:Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  overflow-x:hidden;
-}
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.045;
-  background-image:
-    linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
-  background-size:44px 44px;
-  mask-image:radial-gradient(circle at center,#000,transparent 80%);
-}
-.page{
-  min-height:100svh;
-  display:flex;
-  justify-content:center;
-  padding:18px 12px 28px;
-  background:
-    radial-gradient(ellipse at 50% 10%,rgba(201,148,45,.18),transparent 38%),
-    radial-gradient(ellipse at 50% 80%,rgba(118,73,10,.12),transparent 45%),
-    #030303;
-}
-.experience{
-  width:min(100%,620px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-.brand{
-  margin:2px 0 10px;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(43px,12vw,74px);
-  line-height:.9;
-  letter-spacing:.08em;
-  font-weight:700;
-  background:linear-gradient(180deg,#fff0b2,#e8bb58 42%,#966013);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  filter:drop-shadow(0 8px 18px rgba(0,0,0,.8));
-}
-.brand-line{
-  width:min(70%,330px);
-  height:1px;
-  margin:0 auto 16px;
-  background:linear-gradient(90deg,transparent,#d49a2e,#fff0a5,#d49a2e,transparent);
-}
-.hero-shell{
-  position:relative;
-  width:100%;
-  padding:7px;
-  border:1px solid rgba(224,179,77,.34);
-  border-radius:27px;
-  background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.02));
-  box-shadow:
-    0 35px 90px rgba(0,0,0,.72),
-    0 0 55px rgba(181,123,24,.12),
-    inset 0 1px 0 rgba(255,255,255,.12);
-  overflow:hidden;
-}
-.hero{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius:20px;
-}
-.cta-area{
-  position:relative;
-  z-index:5;
-  width:100%;
-  margin-top:-7px;
-  padding:0 9px;
-}
-.join{
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  min-height:63px;
-  border-radius:18px;
-  border:1px solid rgba(255,230,160,.7);
-  background:linear-gradient(180deg,#f5d77b,#d8a43b 50%,#a66d18);
-  color:#080604;
-  text-decoration:none;
-  font-size:17px;
-  font-weight:900;
-  letter-spacing:.075em;
-  box-shadow:
-    0 16px 32px rgba(0,0,0,.55),
-    0 0 28px rgba(221,171,67,.25),
-    inset 0 1px 0 rgba(255,255,255,.75);
-  overflow:hidden;
-  cursor:pointer;
-  transition:transform .18s ease,filter .18s ease;
-}
-.join:active{transform:scale(.985)}
-.join:hover{filter:brightness(1.06)}
-.wa{
-  width:29px;
-  height:29px;
-  margin-right:11px;
-  flex:none;
-}
-.join:after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-35%;
-  width:24%;
-  height:100%;
-  transform:skewX(-20deg);
-  background:rgba(255,255,255,.43);
-  filter:blur(8px);
-  animation:shine 4s infinite;
-}
-@keyframes shine{
-  0%,55%{left:-35%}
-  75%,100%{left:125%}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* TikTok fallback */
-.fallback{
-  position:fixed;
-  inset:0;
-  z-index:20;
-  display:none;
-  align-items:flex-end;
-  justify-content:center;
-  padding:18px;
-  background:rgba(0,0,0,.72);
-  backdrop-filter:blur(8px);
-}
-.fallback.show{display:flex}
-.sheet{
-  width:min(100%,520px);
-  padding:12px;
-  border:1px solid rgba(224,179,77,.38);
-  border-radius:22px;
-  background:linear-gradient(145deg,#17130c,#080808);
-  box-shadow:0 25px 70px rgba(0,0,0,.75);
-}
-.sheet-title{
-  padding:4px 8px 10px;
-  text-align:center;
-  color:#f2cd70;
-  font-family:Georgia,serif;
-  font-size:19px;
-  font-weight:700;
-}
-.fallback-buttons{
-  display:grid;
-  gap:9px;
-}
-.fallback-buttons a,
-.fallback-buttons button{
-  width:100%;
-  min-height:53px;
-  border-radius:14px;
-  border:1px solid rgba(255,226,150,.35);
-  font-size:15px;
-  font-weight:800;
-  letter-spacing:.04em;
-  cursor:pointer;
-}
-.open-browser{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  background:linear-gradient(180deg,#f5d77b,#c98d21);
-  color:#080604;
-}
-.copy-link{
-  background:#151515;
-  color:#f4d47c;
-}
-.close{
-  background:transparent;
-  border-color:transparent!important;
-  color:#aaa;
-  min-height:42px!important;
+:root {
+    --gold: #d9a83f;
+    --gold-light: #ffe29a;
+    --gold-dark: #8b5a12;
+    --black: #030303;
+    --panel: #0d0d0d;
+    --text: #f5f5f5;
+    --muted: #999;
 }
 
-@media(max-width:480px){
-  .page{padding:13px 9px 22px}
-  .hero-shell{padding:6px;border-radius:22px}
-  .hero{border-radius:17px}
-  .cta-area{padding:0 6px}
-  .join{min-height:60px;border-radius:16px;font-size:15px}
+html,
+body {
+    width: 100%;
+    min-height: 100%;
 }
 
-@media(prefers-reduced-motion:reduce){
-  .join:after{animation:none}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(217,168,63,.12), transparent 35%),
+        linear-gradient(145deg, #020202, #0b0b0b 50%, #020202);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* Main page */
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+}
+
+.card {
+    width: 100%;
+    max-width: 470px;
+    background: rgba(10,10,10,.94);
+    border: 1px solid rgba(217,168,63,.35);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.75),
+        0 0 45px rgba(217,168,63,.08);
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    min-height: 540px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05) 25%,
+            rgba(0,0,0,.15) 45%,
+            rgba(0,0,0,.96) 100%
+        );
+    pointer-events: none;
+}
+
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(.95) contrast(1.05);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 30px 24px 26px;
+    text-align: center;
+}
+
+.logo {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 30px rgba(217,168,63,.3);
+    margin-bottom: 14px;
+}
+
+.brand {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 10vw, 52px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold-light);
+    text-shadow: 0 3px 20px rgba(0,0,0,.8);
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: #d0d0d0;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Content */
+.content {
+    padding: 25px 22px 28px;
+}
+
+.status {
+    display: none;
+    margin-bottom: 18px;
+    padding: 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(217,168,63,.35);
+    background: rgba(217,168,63,.07);
+    color: #eee;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.status strong {
+    color: var(--gold-light);
+}
+
+/* Buttons */
+.button {
+    width: 100%;
+    min-height: 58px;
+    border: 0;
+    border-radius: 16px;
+    margin-top: 12px;
+    padding: 15px 18px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    cursor: pointer;
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        opacity .15s ease;
+}
+
+.button:active {
+    transform: scale(.98);
+}
+
+.button-primary {
+    color: #090909;
+    background: linear-gradient(
+        135deg,
+        #fff0b0,
+        #d9a83f 45%,
+        #f4c95d
+    );
+    box-shadow:
+        0 10px 30px rgba(217,168,63,.18),
+        inset 0 1px rgba(255,255,255,.65);
+}
+
+.button-secondary {
+    color: var(--gold-light);
+    background: #111;
+    border: 1px solid rgba(217,168,63,.5);
+}
+
+.button-dark {
+    color: #ddd;
+    background: #080808;
+    border: 1px solid #292929;
+}
+
+.button:hover {
+    opacity: .94;
+    box-shadow: 0 12px 35px rgba(0,0,0,.35);
+}
+
+/* TikTok panel */
+.tiktok-panel {
+    display: none;
+    margin-top: 18px;
+    padding: 20px;
+    border-radius: 18px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(217,168,63,.11),
+            rgba(255,255,255,.025)
+        );
+    border: 1px solid rgba(217,168,63,.28);
+}
+
+.tiktok-panel h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--gold-light);
+    font-size: 22px;
+    margin-bottom: 9px;
+    text-align: center;
+}
+
+.tiktok-panel p {
+    color: #bdbdbd;
+    font-size: 14px;
+    line-height: 1.55;
+    text-align: center;
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(217,168,63,.35),
+        transparent
+    );
+    margin: 23px 0;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 0 20px 25px;
+    color: #666;
+    font-size: 12px;
+    letter-spacing: .5px;
+}
+
+/* Desktop */
+@media (min-width: 700px) {
+    .page {
+        padding: 45px 20px;
+    }
+
+    .card {
+        max-width: 520px;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<main class="page">
-  <section class="experience" aria-label="JD Store">
+<div class="page">
 
-    <div class="brand">JD STORE</div>
-    <div class="brand-line"></div>
+    <main class="card">
 
-    <div class="hero-shell">
-      <img class="hero" src="jd-store.png" alt="JD Store">
-    </div>
+        <section class="hero">
 
-    <div class="cta-area">
+            <!-- Your uploaded JD Store PNG -->
+            <img
+                src="jd-store.png"
+                alt="JD Store"
+                class="hero-image"
+            >
 
-      <a id="joinButton"
-         class="join"
-         href="https://chat.whatsapp.com/GSBuXahlqJ21uJvYHimiun?s=cl&p=a&mlu=4"
-         aria-label="Join JD Store WhatsApp group">
+            <div class="hero-content">
 
-        <svg class="wa" viewBox="0 0 32 32" aria-hidden="true">
-          <circle cx="16" cy="16" r="15" fill="#101010"/>
-          <path fill="#fff"
-          d="M23.4 8.6A10.5 10.5 0 0 0 6 21.1L4.8 25.5l4.5-1.2A10.5 10.5 0 0 0 23.4 8.6Zm-7.4 16a8.7 8.7 0 0 1-4.4-1.2l-.3-.2-2.7.7.7-2.6-.2-.3a8.7 8.7 0 1 1 6.9 3.6Zm4.8-6.5c-.3-.2-1.7-.9-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 .9-.2.1-.4.1-.7-.1-.3-.2-1.1-.4-2-1.3-.7-.7-1.3-1.6-1.4-1.9-.1-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.5-.1-.7-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.3 3.5 5.5 4.8.8.3 1.4.5 1.9.6.8.3 1.5.2 2 .1.6-.1 1.7-.7 2-1.3.2-.6.2-1.1.1-1.3-.1-.1-.3-.2-.6-.4Z"/>
-        </svg>
+                <img
+                    src="jd-store.png"
+                    alt="JD Store"
+                    class="logo"
+                >
 
-        <span id="joinText">JOIN WHATSAPP GROUP</span>
+                <h1 class="brand">JD STORE</h1>
 
-      </a>
+                <p class="subtitle">
+                    Official WhatsApp Community
+                </p>
 
-    </div>
-  </section>
-</main>
+            </div>
 
+        </section>
 
-<!-- TikTok fallback popup -->
+        <section class="content">
 
-<div id="fallback"
-     class="fallback"
-     role="dialog"
-     aria-modal="true"
-     aria-label="Open WhatsApp">
+            <!-- TikTok message -->
+            <div id="tiktokPanel" class="tiktok-panel">
 
-  <div class="sheet">
+                <h2>OPEN JD STORE</h2>
 
-    <div class="sheet-title">
-      OPEN JD STORE
-    </div>
+                <p>
+                    TikTok's browser may block WhatsApp.
+                    Open this page in Chrome first, then WhatsApp
+                    will open normally.
+                </p>
 
-    <div class="fallback-buttons">
+                <button
+                    class="button button-primary"
+                    id="chromeButton"
+                    type="button"
+                >
+                    OPEN IN CHROME
+                </button>
 
-      <a id="chromeLink"
-         class="open-browser"
-         href="#">
-        OPEN IN CHROME
-      </a>
+                <button
+                    class="button button-secondary"
+                    id="copyButtonTikTok"
+                    type="button"
+                >
+                    COPY WHATSAPP LINK
+                </button>
 
-      <button id="copyButton"
-              class="copy-link"
-              type="button">
-        COPY WHATSAPP LINK
-      </button>
+            </div>
 
-      <button id="closeButton"
-              class="close"
-              type="button">
-        CLOSE
-      </button>
+            <!-- Status message -->
+            <div id="status" class="status"></div>
 
-    </div>
+            <!-- Normal browser button -->
+            <button
+                class="button button-primary"
+                id="joinButton"
+                type="button"
+            >
+                JOIN JD STORE
+            </button>
 
-  </div>
+            <button
+                class="button button-secondary"
+                id="copyButton"
+                type="button"
+            >
+                COPY WHATSAPP LINK
+            </button>
+
+            <div class="divider"></div>
+
+            <button
+                class="button button-dark"
+                id="downloadButton"
+                type="button"
+            >
+                DOWNLOAD WHATSAPP
+            </button>
+
+        </section>
+
+        <div class="footer">
+            © JD Store
+        </div>
+
+    </main>
+
 </div>
 
-
 <script>
-(function(){
+/*
+====================================================
+JD STORE — WHATSAPP / TIKTOK FALLBACK
+====================================================
+*/
 
-  const WA =
-    "https://chat.whatsapp.com/GSBuXahlqJ21uJvYHimiun?s=cl&p=a&mlu=4";
+const WHATSAPP_LINK =
+    "https://chat.whatsapp.com/GSBuXahlqJ21uJvYHimiun";
 
-  const join =
+/*
+Detect TikTok's in-app browser.
+
+TikTok user agents commonly contain:
+- TikTok
+- Musically
+*/
+
+const userAgent = navigator.userAgent || navigator.vendor || "";
+
+const isTikTok =
+    /TikTok|Musically/i.test(userAgent);
+
+/*
+Detect other common in-app browsers.
+*/
+
+const isInstagram =
+    /Instagram/i.test(userAgent);
+
+const isFacebook =
+    /FBAN|FBAV|FB_IAB/i.test(userAgent);
+
+const isInAppBrowser =
+    isTikTok || isInstagram || isFacebook;
+
+/*
+Elements
+*/
+
+const joinButton =
     document.getElementById("joinButton");
 
-  const text =
-    document.getElementById("joinText");
-
-  const fallback =
-    document.getElementById("fallback");
-
-  const chromeLink =
-    document.getElementById("chromeLink");
-
-  const copyButton =
+const copyButton =
     document.getElementById("copyButton");
 
-  const closeButton =
-    document.getElementById("closeButton");
+const copyButtonTikTok =
+    document.getElementById("copyButtonTikTok");
 
+const chromeButton =
+    document.getElementById("chromeButton");
 
-  const ua =
-    navigator.userAgent || "";
+const downloadButton =
+    document.getElementById("downloadButton");
 
-  const isTikTok =
-    /TikTok|musical_ly/i.test(ua);
+const tiktokPanel =
+    document.getElementById("tiktokPanel");
 
-  const isAndroid =
-    /Android/i.test(ua);
+const status =
+    document.getElementById("status");
 
+/*
+Show message.
+*/
 
-  /*
-    Android Chrome external-browser intent.
-    This is only used after the user taps the button.
-  */
+function showStatus(message) {
 
-  const chromeIntent =
-    "intent://" +
-    WA.replace(/^https?:\/\//i, "") +
-    "#Intent;scheme=https;package=com.android.chrome;end";
+    status.innerHTML = message;
+    status.style.display = "block";
 
+    setTimeout(function() {
+        status.style.display = "none";
+    }, 5000);
+}
 
-  chromeLink.href =
-    isAndroid ? chromeIntent : WA;
+/*
+Copy WhatsApp invite.
+*/
 
+async function copyWhatsAppLink(button) {
 
-  function showFallback(){
-    fallback.classList.add("show");
-  }
+    try {
 
+        if (navigator.clipboard &&
+            navigator.clipboard.writeText) {
 
-  function attempt(){
+            await navigator.clipboard.writeText(
+                WHATSAPP_LINK
+            );
 
-    /*
-      TikTok's in-app browser can block
-      WhatsApp app handoff.
+        } else {
 
-      Instead of showing:
-      "Action can't be completed"
+            const textarea =
+                document.createElement("textarea");
 
-      we show an external-browser option.
-    */
+            textarea.value = WHATSAPP_LINK;
 
-    if(isTikTok){
-      showFallback();
-      return;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+
+            document.body.appendChild(textarea);
+
+            textarea.select();
+
+            document.execCommand("copy");
+
+            textarea.remove();
+        }
+
+        const original =
+            button.innerText;
+
+        button.innerText =
+            "✓ LINK COPIED";
+
+        showStatus(
+            "<strong>WhatsApp link copied.</strong><br>" +
+            "Open Chrome and paste the link."
+        );
+
+        setTimeout(function() {
+            button.innerText = original;
+        }, 2500);
+
+    } catch (error) {
+
+        showStatus(
+            "<strong>Copy failed.</strong><br>" +
+            "Please use the WhatsApp link manually."
+        );
     }
+}
 
+/*
+Open WhatsApp normally.
+
+This is deliberately done only after
+a user taps the button.
+*/
+
+function openWhatsApp() {
+
+    window.location.href =
+        WHATSAPP_LINK;
+}
+
+/*
+Try to open Chrome directly on Android.
+
+This uses an Android intent and therefore
+works best when Chrome is installed.
+*/
+
+function openChrome() {
+
+    const chromeIntent =
+        "intent://chat.whatsapp.com/" +
+        "GSBuXahlqJ21uJvYHimiun" +
+        "#Intent;" +
+        "scheme=https;" +
+        "package=com.android.chrome;" +
+        "end";
 
     /*
-      Normal browsers:
-      send the visitor directly to WhatsApp.
+    User gesture -> Android intent.
     */
 
-    window.location.href = WA;
-
+    window.location.href =
+        chromeIntent;
 
     /*
-      If the browser blocks the handoff,
-      show the fallback.
+    If the intent isn't supported,
+    provide a visible fallback.
     */
 
-    setTimeout(
-      showFallback,
-      1800
+    setTimeout(function() {
+
+        showStatus(
+            "<strong>Chrome didn't open?</strong><br>" +
+            "Tap the ⋮ menu in TikTok and choose " +
+            "<strong>Open in browser</strong>."
+        );
+
+    }, 1800);
+}
+
+/*
+WhatsApp download page.
+*/
+
+function downloadWhatsApp() {
+
+    window.open(
+        "https://www.whatsapp.com/download",
+        "_blank"
     );
-  }
+}
 
+/*
+Normal JOIN button.
+*/
 
-  join.addEventListener(
+joinButton.addEventListener(
     "click",
-    function(e){
+    function() {
 
-      e.preventDefault();
+        /*
+        In TikTok we do NOT directly launch
+        WhatsApp because TikTok may block it.
+        */
 
-      attempt();
+        if (isInAppBrowser) {
 
+            tiktokPanel.style.display =
+                "block";
+
+            showStatus(
+                "<strong>TikTok browser detected.</strong><br>" +
+                "Use OPEN IN CHROME above."
+            );
+
+            return;
+        }
+
+        openWhatsApp();
     }
-  );
+);
 
+/*
+Copy buttons.
+*/
 
-  /*
-    Copy WhatsApp invitation link
-  */
-
-  copyButton.addEventListener(
+copyButton.addEventListener(
     "click",
-    async function(){
-
-      try{
-
-        await navigator.clipboard.writeText(WA);
-
-        copyButton.textContent =
-          "COPIED";
-
-        setTimeout(
-          () =>
-            copyButton.textContent =
-            "COPY WHATSAPP LINK",
-          1600
-        );
-
-      }
-
-      catch(e){
-
-        window.prompt(
-          "Copy WhatsApp link:",
-          WA
-        );
-
-      }
-
+    function() {
+        copyWhatsAppLink(copyButton);
     }
-  );
+);
 
-
-  /*
-    Close fallback
-  */
-
-  closeButton.addEventListener(
+copyButtonTikTok.addEventListener(
     "click",
-    function(){
-
-      fallback.classList.remove("show");
-
+    function() {
+        copyWhatsAppLink(copyButtonTikTok);
     }
-  );
+);
 
+/*
+Chrome button.
+*/
 
-  /*
-    Keep the button text consistent
-    when opened inside TikTok.
-  */
+chromeButton.addEventListener(
+    "click",
+    openChrome
+);
 
-  if(isTikTok){
+/*
+Download button.
+*/
 
-    text.textContent =
-      "JOIN WHATSAPP GROUP";
+downloadButton.addEventListener(
+    "click",
+    downloadWhatsApp
+);
 
-  }
+/*
+When opened inside TikTok,
+show the special fallback panel
+immediately.
 
-})();
+The normal JOIN button remains
+available underneath.
+*/
+
+if (isInAppBrowser) {
+
+    tiktokPanel.style.display =
+        "block";
+
+    /*
+    Change the normal button text
+    so users understand why they
+    should use Chrome.
+    */
+
+    joinButton.innerText =
+        "OPEN JD STORE IN BROWSER";
+
+}
+
+/*
+If someone opens the page from
+Chrome or another normal browser,
+the TikTok panel stays hidden.
+*/
+
 </script>
 
 </body>
