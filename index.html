@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JD Store</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  font-family: Arial, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 35%, #191100 0%, #050505 45%, #000 75%);
+  overflow: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  padding: 25px 15px 30px;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 12vw, 85px);
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: #f7c85b;
+  text-shadow:
+    0 0 8px #9b6500,
+    0 0 25px rgba(255,190,40,.35);
+  margin-bottom: 5px;
+}
+
+.title {
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 13vw, 95px);
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #f8c95b;
+  text-shadow:
+    0 2px 0 #8a5700,
+    0 0 15px rgba(255,190,40,.3);
+  margin: 0 0 15px;
+}
+
+.ornament {
+  width: 70%;
+  max-width: 430px;
+  height: 2px;
+  margin: 0 auto 18px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d99b25,
+    #fff0a0,
+    #d99b25,
+    transparent
+  );
+}
+
+.hero {
+  width: 100%;
+  max-width: 580px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.join {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 90%;
+  max-width: 560px;
+  margin: 18px auto 0;
+  padding: 18px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  background: linear-gradient(180deg, #f7d36b, #c98a18);
+  color: #080808;
+  font-size: clamp(18px, 5vw, 28px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  box-shadow:
+    0 0 20px rgba(230,170,40,.35),
+    inset 0 1px 0 #fff2ae;
+  border: 2px solid #f2c85b;
+}
+
+.join img {
+  width: 38px;
+  height: 38px;
+}
+
+.join:active {
+  transform: scale(.97);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding-top: 18px;
+  }
+
+  .join {
+    width: 94%;
+    padding: 15px 12px;
+  }
+
+  .join img {
+    width: 32px;
+    height: 32px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+  <div class="card">
+
+    <div class="logo">JD</div>
+
+    <h1 class="title">JD STORE</h1>
+
+    <div class="ornament"></div>
+
+    <!-- Replace jd-store.png with your generated poster image -->
+    <img
+      class="hero"
+      src="jd-store.png"
+      alt="JD Store">
+
+    <a
+      class="join"
+      href="https://chat.whatsapp.com/GSBuXahlqJ21uJvYHimiun?s=cl&p=a&mlu=4"
+      target="_blank">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="">
+      JOIN WHATSAPP GROUP
+    </a>
+
+  </div>
+</div>
+
+</body>
+</html>
