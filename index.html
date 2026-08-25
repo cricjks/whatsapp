@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="JD Store — Join our WhatsApp community.">
+<title>JD Store</title>
+
+<style>
+  :root {
+    --gold: #d9a83f;
+    --gold-bright: #ffe29a;
+    --gold-deep: #8b5a12;
+    --black: #030303;
+    --panel: rgba(17, 17, 17, .72);
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    background: var(--black);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    background:
+      radial-gradient(ellipse at 50% 15%, rgba(184, 126, 24, .16), transparent 42%),
+      radial-gradient(ellipse at 50% 80%, rgba(114, 73, 13, .12), transparent 45%),
+      #030303;
+    color: #fff;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .055;
+    background-image:
+      linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(circle at center, black, transparent 78%);
+  }
+
+  .page {
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    padding: 22px 14px 28px;
+  }
+
+  .experience {
+    width: min(100%, 620px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand {
+    position: relative;
+    z-index: 3;
+    margin: 4px 0 4px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 12vw, 72px);
+    line-height: .9;
+    letter-spacing: .08em;
+    font-weight: 700;
+    background: linear-gradient(180deg, #fff0b3 0%, #e9bd5a 38%, #9b6415 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 7px 18px rgba(0,0,0,.8));
+  }
+
+  .brand-line {
+    width: min(72%, 330px);
+    height: 1px;
+    margin: 12px auto 16px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-bright), var(--gold), transparent);
+    box-shadow: 0 0 12px rgba(217,168,63,.35);
+  }
+
+  .hero-shell {
+    position: relative;
+    width: 100%;
+    border: 1px solid rgba(224, 179, 77, .34);
+    border-radius: 28px;
+    padding: 8px;
+    background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.025));
+    box-shadow:
+      0 35px 90px rgba(0,0,0,.72),
+      0 0 55px rgba(181,123,24,.12),
+      inset 0 1px 0 rgba(255,255,255,.12);
+    overflow: hidden;
+  }
+
+  .hero-shell::before {
+    content: "";
+    position: absolute;
+    width: 65%;
+    height: 25%;
+    top: -8%;
+    left: 17%;
+    background: rgba(255, 207, 104, .13);
+    filter: blur(45px);
+    pointer-events: none;
+  }
+
+  .hero {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 21px;
+    object-fit: cover;
+    box-shadow: 0 18px 45px rgba(0,0,0,.58);
+  }
+
+  .cta-area {
+    width: 100%;
+    margin-top: -8px;
+    padding: 0 10px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .join {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
+    width: 100%;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 230, 160, .65);
+    background:
+      linear-gradient(180deg, #f5d77b 0%, #d8a43b 48%, #a66d18 100%);
+    color: #080604;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    box-shadow:
+      0 16px 32px rgba(0,0,0,.55),
+      0 0 28px rgba(221,171,67,.24),
+      inset 0 1px 0 rgba(255,255,255,.7),
+      inset 0 -8px 20px rgba(91,54,5,.18);
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    overflow: hidden;
+  }
+
+  .join::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -35%;
+    width: 25%;
+    height: 100%;
+    transform: skewX(-20deg);
+    background: rgba(255,255,255,.45);
+    filter: blur(8px);
+    animation: shine 3.8s infinite;
+  }
+
+  .wa {
+    width: 28px;
+    height: 28px;
+    margin-right: 11px;
+    flex: 0 0 auto;
+  }
+
+  .join:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow:
+      0 20px 38px rgba(0,0,0,.6),
+      0 0 38px rgba(221,171,67,.34),
+      inset 0 1px 0 rgba(255,255,255,.75);
+  }
+
+  .join:active {
+    transform: translateY(1px) scale(.99);
+  }
+
+  @keyframes shine {
+    0%, 55% { left: -35%; }
+    75%, 100% { left: 125%; }
+  }
+
+  @media (max-width: 480px) {
+    .page { padding: 14px 10px 22px; }
+    .hero-shell { border-radius: 22px; padding: 6px; }
+    .hero { border-radius: 17px; }
+    .cta-area { padding: 0 6px; }
+    .join {
+      min-height: 60px;
+      border-radius: 16px;
+      font-size: 16px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .join::before { animation: none; }
+    .join { transition: none; }
+  }
+</style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="experience" aria-label="JD Store">
+
+      <div class="brand">JD STORE</div>
+      <div class="brand-line"></div>
+
+      <div class="hero-shell">
+        <img class="hero" src="jd-store.png" alt="JD Store">
+      </div>
+
+      <div class="cta-area">
+        <a class="join"
+           href="https://chat.whatsapp.com/GSBuXahlqJ21uJvYHimiun?s=cl&p=a&mlu=4"
+           aria-label="Join JD Store WhatsApp group">
+          <svg class="wa" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="15" fill="#101010"/>
+            <path fill="#fff" d="M23.4 8.6A10.5 10.5 0 0 0 6 21.1L4.8 25.5l4.5-1.2A10.5 10.5 0 0 0 23.4 8.6Zm-7.4 16a8.7 8.7 0 0 1-4.4-1.2l-.3-.2-2.7.7.7-2.6-.2-.3a8.7 8.7 0 1 1 6.9 3.6Zm4.8-6.5c-.3-.2-1.7-.9-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 .9-.2.1-.4.1-.7-.1-.3-.2-1.1-.4-2-1.3-.7-.7-1.3-1.6-1.4-1.9-.1-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.5-.1-.7-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.3 3.5 5.5 4.8.8.3 1.4.5 1.9.6.8.3 1.5.2 2 .1.6-.1 1.7-.7 2-1.3.2-.6.2-1.1.1-1.3-.1-.1-.3-.2-.6-.4Z"/>
+          </svg>
+          JOIN WHATSAPP GROUP
+        </a>
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>
